@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew Attanasio | Portfolio</title>
+  <style>
+    :root {
+      --primary-red: #cc0033;
+      --bg-color: #ffffff;
+      --text-main: #111111;
+      --text-muted: #666666;
+      --border-color: #e5e5e5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* --- Navigation --- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      margin-bottom: 4rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .logo .red-text {
+      color: var(--primary-red);
+      margin-right: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-muted);
+    }
+
+    .btn-dark {
+      background-color: var(--text-main);
+      color: #ffffff !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .btn-dark:hover {
+      background-color: #333333;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      display: flex;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .hero-profile {
+      flex: 0 0 250px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #f0f0f0;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-profile h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-profile .school {
+      color: var(--primary-red);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-profile .class-year {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .hero-bio {
+      flex: 1;
+      padding-top: 1rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background-color: #fff0f2;
+      color: var(--primary-red);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-bio h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-bio p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .action-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .btn-outline {
+      text-decoration: none;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: border-color 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-muted);
+    }
+
+    /* --- Skills Section --- */
+    .skills {
+      margin-bottom: 5rem;
+    }
+
+    .skills h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-tag {
+      background-color: #f8f9fa;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* --- Projects Section --- */
+    .projects {
+      margin-bottom: 6rem;
+    }
+
+    .projects h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .projects > p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border-color: #d1d5db;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .text-link {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.2s;
+    }
+
+    .text-link:hover {
+      color: var(--primary-red);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .hero-profile {
+        align-items: flex-start;
+        text-align: left;
+        flex: auto;
+      }
+      .hero-bio h1 {
+        font-size: 2.2rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">
+        <span class="red-text">RBS</span> Andrew Attanasio
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#" class="btn-dark">Download Resume</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section (Personal Statement) -->
+    <section class="hero" id="about">
+      <div class="hero-profile">
+        <!-- Replace the src URL with your actual image file path (e.g., src="headshot.jpg") -->
+        <img src="https://via.placeholder.com/160" alt="Andrew Attanasio" class="profile-img">
+        <h2>Andrew Attanasio</h2>
+        <p class="school">Rutgers Business School</p>
+        <p class="class-year">Class of 2028</p>
+      </div>
+
+      <div class="hero-bio">
+        <span class="status-badge">Finance Major</span>
+        <h1>Dedicated to financial analytics and corporate strategy.</h1>
+        <p>
+          Welcome! My name is Andrew Attanasio and I am currently a junior at Rutgers Business School studying finance.
+        </p>
+        
+        <div class="action-links">
+          <!-- Update the email address below -->
+          <a href="mailto:your.email@rutgers.edu" class="btn-outline">Email Me</a>
+          <!-- Update the LinkedIn URL below -->
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-link">LinkedIn Profile &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <h2>Professional Skills</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Teamwork</span>
+        <span class="skill-tag">Adaptability</span>
+        <span class="skill-tag">Time Management</span>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <h2>My Projects & Experience</h2>
+      <p>A selection of practical applications and academic organizations demonstrating my analytical approach and teamwork capabilities.</p>
+      
+      <div class="projects-grid">
+        
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h3>Forage Job Simulation</h3>
+          <!-- Update the description below to highlight your specific tasks -->
+          <p>Completed a comprehensive virtual job simulation, developing practical competencies in financial modeling, corporate analysis, and business strategy execution.</p>
+          <!-- Replace the # with the link to your Forage certificate/repo -->
+          <a href="#" target="_blank" class="text-link">View Certificate &rarr;</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <h3>Little Investment Bankers of Rutgers</h3>
+          <!-- Update the description below to highlight your specific involvement -->
+          <p>Active participant in Rutgers University's premier finance organization, engaging in financial modeling workshops, market analysis discussions, and investment case studies.</p>
+          <!-- Replace the # with the link to the organization or your specific work -->
+          <a href="#" target="_blank" class="text-link">View Details &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
